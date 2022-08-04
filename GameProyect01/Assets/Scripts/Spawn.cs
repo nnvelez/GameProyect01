@@ -16,16 +16,24 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Shout();
+        }
+
+
+    }
+
+    private void Shout()
+    {
         if (canShoot)
         {
             canShoot = false;
             SpawnBullet();
             Invoke("ResetShoot", spawnTime);
         }
-
-
-
     }
+
     private void SpawnBullet()
     {
         Instantiate(munition, transform.position, transform.rotation);
